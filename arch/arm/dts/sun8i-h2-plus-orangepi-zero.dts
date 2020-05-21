@@ -71,7 +71,7 @@
 		regulator-max-microvolt = <3300000>;
 		regulator-name = "vcc-wifi";
 		enable-active-high;
-		gpio = <&pio 0 7 GPIO_ACTIVE_LOW>;
+		gpio = <&pio 0 7 GPIO_ACTIVE_HIGH>;
 	};
 
 	wifi_pwrseq: wifi_pwrseq {
