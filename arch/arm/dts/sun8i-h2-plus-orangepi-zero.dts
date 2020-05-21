@@ -70,13 +70,13 @@
 
 		pwr_led {
 			label = "orangepi:green:pwr";
-			gpios = <&r_pio 0 10 GPIO_ACTIVE_LOW>;
+			gpios = <&r_pio 0 10 GPIO_ACTIVE_HIGH>;
 			default-state = "on";
 		};
 
 		status_led {
 			label = "orangepi:red:status";
-			gpios = <&pio 0 15 GPIO_ACTIVE_LOW>;
+			gpios = <&pio 0 15 GPIO_ACTIVE_HIGH>;
 		};
 	};
 
@@ -86,7 +86,7 @@
 		regulator-max-microvolt = <3300000>;
 		regulator-name = "vcc-wifi";
 		enable-active-high;
-		gpio = <&pio 0 7 GPIO_ACTIVE_LOW>;
+		gpio = <&pio 0 7 GPIO_ACTIVE_HIGH>;
 	};
 
 	wifi_pwrseq: wifi_pwrseq {
