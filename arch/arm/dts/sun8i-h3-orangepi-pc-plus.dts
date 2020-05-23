@@ -39,6 +39,8 @@
  *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  *     OTHER DEALINGS IN THE SOFTWARE.
  */
+ 
+/dts-v1/;
 #include "sun8i-h3.dtsi"
 #include "sunxi-common-regulators.dtsi"
 
