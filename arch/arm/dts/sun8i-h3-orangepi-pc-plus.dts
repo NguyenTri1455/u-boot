@@ -47,7 +47,7 @@
 
 / {
 	model = "Xunlong Orange Pi PC Plus";
-	compatible = "sunvell,q9s", "allwinner,sun8i-h3";
+	compatible = "xunlong,orangepi-pc-plus", "allwinner,sun8i-h3";
 
 	aliases {
 		serial0 = &uart0;
