@@ -1,8 +1,5 @@
 /*
- * Copyright (C) 2016 Icenowy Zheng <icenowy@aosc.xyz>
- *
- * Based on sun8i-h3-orangepi-one.dts, which is:
- *   Copyright (C) 2016 Hans de Goede <hdegoede@redhat.com>
+ * Copyright (C) 2016 Hans de Goede <hdegoede@redhat.com>
  *
  * This file is dual-licensed: you can use it either under the terms
  * of the GPL or the X11 license, at your option. Note that this dual
@@ -42,7 +39,7 @@
  *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  *     OTHER DEALINGS IN THE SOFTWARE.
  */
-
+ 
 /dts-v1/;
 #include "sun8i-h3.dtsi"
 #include "sunxi-common-regulators.dtsi"
@@ -51,18 +48,28 @@
 #include <dt-bindings/input/input.h>
 
 / {
-	model = "Xunlong Orange Pi Zero";
-	compatible = "xunlong,orangepi-zero", "allwinner,sun8i-h2-plus";
+	model = "Xunlong Orange Pi PC Plus";
+	compatible = "xunlong,orangepi-pc-plus", "allwinner,sun8i-h3";
 
 	aliases {
 		serial0 = &uart0;
-		/* ethernet0 is the H3 emac, defined in sun8i-h3.dtsi */
 		ethernet0 = &emac;
 		ethernet1 = &xr819;
 	};
 
 	chosen {
 		stdout-path = "serial0:115200n8";
+	};
+	
+	connector {
+		compatible = "hdmi-connector";
+		type = "a";
+
+		port {
+			hdmi_con_in: endpoint {
+				remote-endpoint = <&hdmi_out_con>;
+			};
+		};
 	};
 
 	reg_vcc_wifi: reg_vcc_wifi {
@@ -81,6 +88,10 @@
 	};
 };
 
+&de {
+	status = "okay";
+};
+
 &ehci0 {
 	status = "okay";
 };
@@ -94,6 +105,16 @@
 	phy-mode = "mii";
 	allwinner,leds-active-low;
 	status = "okay";
+};
+
+&hdmi {
+	status = "okay";
+};
+
+&hdmi_out {
+	hdmi_out_con: endpoint {
+		remote-endpoint = <&hdmi_con_in>;
+	};
 };
 
 &mmc0 {
